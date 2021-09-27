@@ -46,7 +46,12 @@
                 success: (response) => {
                     console.log(response['result']);
                     location.href = "/";
-                }
+                },
+                error: function (error) {
+                    console.error(error);
+                    // alert('패스워드가 일치하지 않습니다.')
+                    // location.href = '/'
+                },
             })
 
         }

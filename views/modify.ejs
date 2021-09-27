@@ -32,15 +32,13 @@
         function modify_post() {
             const user = $('#user').val()
             const title = $('#title').val()
-            // 해시함수를 사용해야함
-            const password = $('#password').val()
+
+            const password = $('#password').val() // TODO crypto를 이용해 암호화 필요
             const content = $('#content').val()
             const _id = location.pathname.split('/')[2]
 
-            // console.log(_id);
-            // console.log(`/api/modify/${_id}`);
             $.ajax({
-                type: "PATCH",
+                type: "PUT",
                 url: `/api/modify/${_id}`,
                 data: {user, title, password, content},
                 success: (response) => {
@@ -50,14 +48,17 @@
                     } else {
                         location.href = `/`
                     }
-                }
+                },
+                error: function (error) {
+                    alert('패스워드가 일치하지 않습니다.')
+                    location.href = '/'
+                },
             })
         }
 
         function delete_post() {
             const password = $('#password').val()
             let pathName = location.pathname.split("/")[2]
-            // console.log(pathName);
             $.ajax({
                 type: "DELETE",
                 url: `/api/delete/${pathName}`,
@@ -68,9 +69,14 @@
                     } else {
                         location.href = '/'
                     }
-                }
+                },
+                error: function (error) {
+                    alert('패스워드가 일치하지 않습니다.')
+                    location.href = '/'
+                },
             })
         }
+
     </script>
     <style>
 
