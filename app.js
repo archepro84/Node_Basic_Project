@@ -1,6 +1,6 @@
 const express = require("express");
-const renders = require('./renders')
-const routers = require('./routers') // 통신을 수행하는 Router 생성
+const renders = require('./renders');
+const routers = require('./routers'); // 통신을 수행하는 Router 생성
 
 const app = express();
 const port = 3000;

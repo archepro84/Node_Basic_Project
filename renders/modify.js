@@ -12,7 +12,7 @@ router.get("/:_id", async (req, res) => {
             user: isExist["user"],
             title: isExist["title"],
             content: isExist["content"],
-        }
+        };
 
         res.render("modify", result);
     } catch (error) {

@@ -1,5 +1,4 @@
 const express = require("express");
-const Post = require("../schemas/post");
 const router = express.Router();
 
 // 게시글 작성 페이지

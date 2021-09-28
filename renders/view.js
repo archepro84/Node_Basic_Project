@@ -13,7 +13,7 @@ router.get("/:_id", async (req, res) => {
             title: isExist["title"],
             content: isExist["content"],
             createdAt: isExist["createdAt"],
-        }
+        };
 
         res.render("view", result);
     } catch (error) {

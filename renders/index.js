@@ -6,9 +6,9 @@ const writeRouter = require('./write');
 
 const router = express.Router();
 
-router.use("/", mainRouter)
-router.use("/view", viewRouter)
-router.use("/write", writeRouter)
-router.use("/modify", modifyRouter)
+router.use("/", mainRouter);
+router.use("/view", viewRouter);
+router.use("/write", writeRouter);
+router.use("/modify", modifyRouter);
 
-module.exports = router
+module.exports = router;

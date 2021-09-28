@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
 const connect = () => {
-    const id = 'test'
-    const password = 'test'
-    const dbName = 'admin'
+    const id = 'test';
+    const password = 'test';
+    const dbName = 'admin';
     mongoose.connect(
         `mongodb://${id}:${password}@localhost:27017/${dbName}`,
         {
