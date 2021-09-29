@@ -41,7 +41,7 @@
             console.log(title, user, password, content);
             $.ajax({
                 type: "POST",
-                url: '/api/write',
+                url: '/api/posts',
                 data: {title, user, password, content},
                 success: (response) => {
                     console.log(response['result']);

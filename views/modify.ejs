@@ -39,7 +39,7 @@
 
             $.ajax({
                 type: "PUT",
-                url: `/api/modify/${_id}`,
+                url: `/api/posts/${_id}`,
                 data: {user, title, password, content},
                 success: (response) => {
                     const result_code = response['result']
@@ -61,7 +61,7 @@
             let pathName = location.pathname.split("/")[2]
             $.ajax({
                 type: "DELETE",
-                url: `/api/delete/${pathName}`,
+                url: `/api/posts/${pathName}`,
                 data: {password},
                 success: (response) => {
                     if (response['result'] == 406) {
