@@ -44,7 +44,7 @@
                 url: '/api/posts',
                 data: {title, user, password, content},
                 success: (response) => {
-                    console.log(response['result']);
+                    alert(response.result);
                     location.href = "/";
                 },
                 error: function (error) {

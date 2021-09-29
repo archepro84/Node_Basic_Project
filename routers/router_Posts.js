@@ -26,7 +26,7 @@ router.post("/", async (req, res) => {
         const {title, user, password, content} = req.body;
 
         await Post.create({user, password, title, content});
-        res.send({result: "Success"});
+        res.send({result: "게시글을 생성하였습니다."});
     } catch (error) {
         console.log(`${req.method} ${req.originalUrl} : ${error.message}`);
         res.status(400).send();
@@ -46,12 +46,11 @@ router.put("/:_id", async (req, res) => {
         const isExist = await Post.findOne({_id, password});
         if (!isExist || !_id || !user || !password || !title || !content) {
             console.log(`${req.method} ${req.originalUrl} : 일치하지 않는 비밀번호 입니다.`);
-
-            res.send({result: 406});
+            res.status(406).send();
             return;
         }
         await Post.updateOne({_id}, {$set: {user, title, content}});
-        res.send({result: "Success"});
+        res.send({result: "게시글을 수정하였습니다."});
     } catch (error) {
         console.log(`${req.method} ${req.originalUrl} : ${error.message}`);
         res.status(400).send();
@@ -68,13 +67,12 @@ router.delete("/:_id", async (req, res) => {
 
         if (!isExist || !_id) {
             console.log(`${req.method} ${req.originalUrl} : 일치하지 않는 비밀번호 입니다.`);
-
-            res.send({result: 406});
+            res.status(406).send();
             return;
         }
 
         await Post.deleteOne({_id});
-        res.send({result: "Success"});
+        res.send({result: "게시글을 삭제하였습니다."});
     } catch (error) {
         console.log(`${req.method} ${req.originalUrl} : ${error.message}`);
         res.status(400).send();

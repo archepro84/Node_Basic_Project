@@ -42,16 +42,16 @@
                 url: `/api/posts/${_id}`,
                 data: {user, title, password, content},
                 success: (response) => {
-                    const result_code = response['result']
-                    if (result_code == 406) {
-                        alert(`패스워드가 일치하지 않습니다.`)
-                    } else {
-                        location.href = `/`
-                    }
+                    alert(response.result);
+                    location.href = `/`
                 },
                 error: function (error) {
-                    alert('패스워드가 일치하지 않습니다.')
-                    location.href = '/'
+                    console.log(error.status);
+                    if (error.status == 406) {
+                        alert('패스워드가 일치하지 않습니다.')
+                    } else if (error.status == 400) {
+                        alert('API 호출에 실패하였습니다.')
+                    }
                 },
             })
         }
@@ -64,15 +64,16 @@
                 url: `/api/posts/${pathName}`,
                 data: {password},
                 success: (response) => {
-                    if (response['result'] == 406) {
-                        alert('패스워드가 일치하지 않습니다.')
-                    } else {
-                        location.href = '/'
-                    }
+                    alert(response.result);
+                    location.href = `/`
                 },
                 error: function (error) {
-                    alert('패스워드가 일치하지 않습니다.')
-                    location.href = '/'
+                    console.log(error.status);
+                    if (error.status == 406) {
+                        alert('패스워드가 일치하지 않습니다.')
+                    } else if (error.status == 400) {
+                        alert('API 호출에 실패하였습니다.')
+                    }
                 },
             })
         }
